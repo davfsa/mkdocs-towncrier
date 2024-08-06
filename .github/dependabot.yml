@@ -1,0 +1,21 @@
+version: 2
+updates:
+  # GitHub actions
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+    reviewers:
+      - davfsa
+    rebase-strategy: auto
+    target-branch: master
+
+  # Python packages
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: daily
+    reviewers:
+      - davfsa
+    rebase-strategy: auto
+    target-branch: master
