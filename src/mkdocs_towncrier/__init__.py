@@ -70,6 +70,12 @@ class TowncrierPlugin(mkdocs.plugins.BasePlugin[TowncrierPluginConfig]):
 
     directive_regex = re.compile(r"^:: towncrier-draft ?(?P<header>.+?)? *$", flags=re.MULTILINE)
 
+    def on_config(self, config: mkdocs.config.defaults.MkDocsConfig) -> mkdocs.config.defaults.MkDocsConfig | None:
+        """See https://www.mkdocs.org/dev-guide/plugins/#on_config for more info."""
+        _generate_changelog_draft.cache_clear()
+
+        return config
+
     def on_page_markdown(
         self,
         markdown: str,
