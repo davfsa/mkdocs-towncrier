@@ -53,8 +53,8 @@ def _generate_changelog_draft(version_string: str) -> str:
         msg = (
             f"Command `{" ".join(command)}` exited unexpectedly\n"
             f"Return code: {response.returncode}\n"
-            f"stdout:\n{textwrap.indent(stdout, " "*4)}\n"
-            f"stderr:\n{textwrap.indent(stderr, " "*4)}\n"
+            f"stdout:\n{textwrap.indent(stdout, " " * 4)}\n"
+            f"stderr:\n{textwrap.indent(stderr, " " * 4)}\n"
         )
         raise mkdocs.exceptions.BuildError(msg)
 
