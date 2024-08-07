@@ -61,7 +61,7 @@ def _generate_changelog_draft(version_string: str) -> str:
     return response.stdout
 
 
-class TowncrierPluginConfig(mkdocs.config.base.Config):
+class TowncrierPluginConfig(mkdocs.config.Config):
     hide_if_empty = c.Type(bool, default=True)
 
 
