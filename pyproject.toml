@@ -8,6 +8,27 @@ dependencies = [
     "mkdocs>=1.6.0,<1.7.0",
     "towncrier>=24.7.0,<25.0.0",
 ]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: MkDocs",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Environment :: Plugins",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Repository = "https://github.com/davfsa/mkdocs-towncrier"
+Issues = "https://github.com/davfsa/mkdocs-towncrier/issues"
+CI = "https://github.com/davfsa/mkdocs-towncrier/actions"
+Changelog = "https://github.com/davfsa/mkdocs-towncrier/releases"
 
 [project.entry-points."mkdocs.plugins"]
 towncrier = "mkdocs_towncrier:TowncrierPlugin"
