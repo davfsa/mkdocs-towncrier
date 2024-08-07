@@ -39,3 +39,8 @@ to be added:
 ```
 
 And that's it! Any draft fragment files will be picked up and automatically added to your pages.
+
+## Acknowledgements
+
+This project is heavily inspired in the wonderful
+[sphinx-contrib/sphinxcontrib-towncrier](https://github.com/sphinx-contrib/sphinxcontrib-towncrier)!
