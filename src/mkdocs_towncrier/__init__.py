@@ -28,6 +28,7 @@ import subprocess
 import textwrap
 
 import mkdocs
+import mkdocs.config.config_options as c
 import mkdocs.config.defaults
 import mkdocs.exceptions
 import mkdocs.plugins
@@ -60,11 +61,14 @@ def _generate_changelog_draft(version_string: str) -> str:
     return response.stdout
 
 
-class TowncrierPlugin(mkdocs.plugins.BasePlugin):
+class TowncrierPluginConfig(mkdocs.config.base.Config):
+    hide_if_empty = c.Type(bool, default=True)
+
+
+class TowncrierPlugin(mkdocs.plugins.BasePlugin[TowncrierPluginConfig]):
     """Towncrier plugin."""
 
     directive_regex = re.compile(r"^:: towncrier-draft ?(?P<header>.+?)? *$", flags=re.MULTILINE)
-    date_regex = re.compile(r"{date:?(?P<format>.*?)}")
 
     def on_page_markdown(
         self,
@@ -79,6 +83,10 @@ class TowncrierPlugin(mkdocs.plugins.BasePlugin):
         while directive_match := self.directive_regex.search(markdown):
             version_name = directive_match.group(1) or "Unreleased"
             draft = _generate_changelog_draft(version_name)
+
+            if self.config.hide_if_empty and "No significant changes" in draft:
+                # Just replace the directive
+                draft = ""
 
             # Replace the directive with the draft changelog
             match_beginning, match_end = directive_match.span(0)
