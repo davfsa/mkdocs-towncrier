@@ -47,14 +47,15 @@ def _generate_changelog_draft(version_string: str) -> str:
     response = subprocess.run(command, capture_output=True, text=True, check=False)  # noqa: S603
 
     if response.returncode != 0:
-        stdout = response.stdout or "[None]"
-        stderr = response.stderr or "[None]"
+        stdout = textwrap.indent(response.stdout or "[None]", " " * 4)
+        stderr = textwrap.indent(response.stderr or "[None]", " " * 4)
+        command_str = " ".join(command)
 
         msg = (
-            f"Command `{" ".join(command)}` exited unexpectedly\n"
+            f"Command `{command_str}` exited unexpectedly\n"
             f"Return code: {response.returncode}\n"
-            f"stdout:\n{textwrap.indent(stdout, " " * 4)}\n"
-            f"stderr:\n{textwrap.indent(stderr, " " * 4)}\n"
+            f"stdout:\n{stdout}\n"
+            f"stderr:\n{stderr}\n"
         )
         raise mkdocs.exceptions.BuildError(msg)
 
