@@ -1,6 +1,6 @@
 [project]
 name = "mkdocs-towncrier"
-version = "0.1.4"
+version = "0.1.5"
 description = "An insanely small plugin to add towncrier changelog draft into mkdocs"
 readme = "README.md"
 requires-python = ">=3.9"
