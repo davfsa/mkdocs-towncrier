@@ -4,10 +4,7 @@ version = "0.1.4"
 description = "An insanely small plugin to add towncrier changelog draft into mkdocs"
 readme = "README.md"
 requires-python = ">=3.9"
-dependencies = [
-    "mkdocs>=1.6.0,<1.7.0",
-    "towncrier>=24.7.0,<25.0.0",
-]
+dependencies = ["mkdocs>=1.6.0,<1.7.0", "towncrier>=24.7.0,<26.0.0"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Framework :: MkDocs",
@@ -51,13 +48,12 @@ skip-magic-trailing-comma = true
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
-    "COM812",  # May cause conflicts with the formatter
-    "ISC001",  # May cause conflicts with the formatter
-    "D203",    # Incompatible with D211
-    "D213",    # Incompatible with D212
+    "COM812", # May cause conflicts with the formatter
+    "ISC001", # May cause conflicts with the formatter
+    "D203",   # Incompatible with D211
+    "D213",   # Incompatible with D212
 ]
 
 [tool.ruff.lint.isort]
 required-imports = ["from __future__ import annotations"]
 force-single-line = true
-
