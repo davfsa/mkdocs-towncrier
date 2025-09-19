@@ -14,7 +14,7 @@
 You can install the package from PyPI using:
 
 ```bash
-pip install -U mkdocs-towncier
+pip install -U mkdocs-towncrier
 ```
 
 and then enabling it in your `mkdocs.yml` file:
